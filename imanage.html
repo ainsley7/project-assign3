@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>I-manage App</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="kendo.common.min.css" rel="stylesheet" />
+<link href="kendo.default.min.css" rel="stylesheet" />
+<link href="examples-offline.css" rel="stylesheet" />
+<script src="jquery.min.js"></script>
+<script src="kendo.web.min.js"></script>
+<script src="products.js"></script>
+<style type="text/css">
+/*Will hide all of the sections by default*/
+.view{ display: none;}
+
+
+body{
+	color:#000305;
+	background-color:grey;
+	font-size:87.5%;
+	font-family: Arial,'lucida Sans Unicode';
+	line-height: 1.5;
+	text-align: left;
+}
+
+a{
+	text-decoration:none;
+}
+
+a:link, a:visited{
+	color:#cf5c3f;
+}
+
+a:hover, a:active{
+	background-color:#cf5c3f;
+	color:#fff;
+}
+
+.body{
+	margin: 0 auto;
+	width:70%;
+	clear: both;
+}
+
+.mainHeader img{
+	width:30%;
+	height:auto;
+	margin:2% 0;
+}
+
+.mainHeader nav{
+	background-color:#665;
+	height: 40px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+.mainHeader nav ul {
+list-style:none;
+margin:0 auto;
+}
+
+.mainHeader nav ul li{
+	float:left;
+	display:inline;
+}
+
+.mainHeader nav a:link, 
+.mainHeader nav a:visited{
+	color:#fff;
+	display:inline-block;
+	padding:10px 25px;
+	height:20px;
+}
+
+.mainHeader nav a:hover,
+.mainHeader nav a:active,
+.mainHeader nav .active a:link, 
+.mainHeader nav .active a:visited{
+	background-color:#CF5C3F;
+	text-shadow; none;
+}
+
+.mainHeader  nav ul li a{
+	border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+.mainContent{
+	line-height:25px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+.content{
+	width:70%;
+	float: left;
+}
+.topContent{
+	background-color:#fff;
+	border-radius:5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius:5px;
+	padding: 3% 5%;
+	margin-top:2%;
+}
+
+.bottomContent{
+	background-color:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	padding: 3% 5%;
+	margin-top:2%;
+}
+
+.post-info{
+	font-style:italic;
+	color:#999;
+	font-size:98%
+}
+
+.top-sidebar{
+	width:21%;
+	float: left;
+	background-color:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-left:3%;
+	margin-bottom:2%;
+	margin-top:2%;
+	padding:3% 3%;
+	overflow:hidden;
+	
+}
+
+
+.middle-sidebar{
+	width:21%;
+	float: left;
+	background-color:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-left:3%;
+	margin-bottom:2%;
+	margin-top:2%;
+	padding:2% 3%;
+	overflow:hidden;
+}
+.bottom-sidebar{
+	width:21%;
+	float: right;
+	background-color:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-left:3%;
+	margin-bottom:2%;
+	margin-top:2%;
+	padding:2% 3%;
+	overflow:hidden;
+}
+.mainFooter{
+	width:100%;
+	float:left;
+	height:40px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background-color:#666;
+	margin-top:2%;
+	margin-bottom:2%;
+}
+
+.mainFooter p{
+	width:92%;
+	margin:10px auto;
+	color:#fff;
+}
+
+@media only screen and (min-width: 150px) and (max-width: 600px){
+	.body{
+		width:90%;
+		font-size:95%;
+	}
+
+	.mainHeader img{
+		width:100%;
+	}
+	.mainHeader nav{
+		
+		height: 160px;
+	}
+
+	.mainHeader nav ul {
+	padding-left:0;
+	}
+
+	.mainHeader nav ul li{
+		width:100%;
+		text-align:center;
+	}
+
+	.mainHeader nav a:link, 
+	.mainHeader nav a:visited{
+		padding:10px 25px;
+		height:20px;
+		display:block;
+	}
+
+	.content{
+		width:100%;
+		float: left;
+		margin-top:2%;
+	}
+	.post-info{
+		display:none;
+	}
+	.topContent{
+		background-color:#fff;
+		border-radius:5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius:5px;
+		padding: 3% 5%;
+		margin-top:2%;
+		margin-bottom:4%;
+	}
+
+	.bottomContent{
+		margin-top:3%;
+	}
+	
+	.top-sidebar,
+	.middle-sidebar,
+	.bottom-sidebar
+	{
+		width:94%;
+		float: left;
+		margin-left:0%;
+		margin-bottom:2%;
+		margin-top:2%;
+		padding:3% 3%;
+	}
+	.mainFooter{
+		width:100%;
+		float:left;
+		height:40px;
+		border-radius:5px;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		background-color:#666;
+		margin-top:2%;
+		margin-bottom:2%;
+	}
+	.mainFooter p{
+		width:92%;
+		margin:0px auto;
+		color:#fff;
+	}
+}
+
+</style>
+</head>
+<body>
+
+	<header class="mainHeader">
+		<nav>
+			<ul class="nav navbar-nav">
+				<li id="home_view_tab" class="tab active"><a href="#home_view">Home</a></li>
+				<li id="daily_view_tab" class="tab"><a href="#daily_view">Daily-Weekly</a></li>
+				<li id="monthly_view_tab" class="tab"><a href="#monthly_view">Monthly</a></li>
+				<li id="income_view_tab" class="tab"><a href="#income_view">Income</a></li>    
+			</ul>        
+		</nav>
+	</header>
+
+	<div id="home_view" class="view">	
+	<div class="table-responsive">
+	<table class="table table-hover">
+	<thead>
+	<th>Over Budget</th>
+	<th>Surplus-Defisit</th>
+	</thead>
+	<tbody>
+	<tr>
+	<td>yes</td>
+	<td>-35</td>
+	</tr>
+	</tbody>
+	</table>
+	</div>
+	</div>	
+	   
+	<div id="daily_view" class="view">
+		<div id="example" class="k-content">
+            <div id="grid"></div>
+		</div>
+	</div>
+		
+	<div id="monthly_view" class="view">		
+	<div class="table-responsive">
+	<table class="table table-hover">
+	<thead>
+	<th>Responsibilities</th>
+	<th>planned expenses</th>
+	<th>expended</th>
+	<th>savings</th>
+	</thead>
+
+	<tbody>
+	<tr>
+	<th>tithe</th>
+	<td>500</td>
+	<td>500</td>
+	<td>0</td>
+	</tr>
+
+	<tr>
+	<th>loan</th>
+	<td>500</td>
+	<td>500</td>
+	<td>0</td>
+	</tr>
+
+	<tr>
+	<th>home</th>
+	<td>500</td>
+	<td>500</td>
+	<td>0</td>
+	</tr>
+
+	<tr>
+	<th>food</th>
+	<td>152</td>
+	<td>154</td>
+	<td>-2</td>
+	</tr>
+
+	<tr>
+	<th>passage</th>
+	<td>450</td>
+	<td>460</td>
+	<td>-10</td>
+	</tr>
+
+	<tr>
+	<th>shopping</th>
+	<td>450</td>
+	<td>460</td>
+	<td>-10</td>
+	</tr>
+
+	<tr>
+	<th>saving</th>
+	<td>500</td>
+	<td>600</td>
+	<td>+100</td>
+	</tr>
+
+	<tr>
+	<th>totals</th>
+	<td>1300</td>
+	<td>1400</td>
+	<td>100</td>
+	</tr>
+
+	</tbody>
+	</table>	
+	</div>
+	</div>
+	
+	<div id="income_view" class="view">
+	<div class="table-responsive">
+	<table class="table table-hover">
+	<thead>
+	<th>Income</th>
+	<th>Amount</th>
+	</thead>
+	<tbody>
+	<tr>
+	<th>salary</th>
+	<td>4500</td>
+	</tr>
+
+	<tr>
+	<th>tax return</th>
+	<td>500</td>
+	</tr>
+
+	<tr>
+	<th>sales</th>
+	<td>300</td>
+	</tr>
+
+	<tr>
+	<th>interest</th>
+	<td>300</td>
+	</tr>
+
+	<tr>
+	<th>total</th>
+	<td>5500</td>
+	</tr>
+
+
+	</tbody>
+	</table> 
+	</div>   
+	</div>   
+	
+	<footer class="mainFooter">
+		<noscript>This application relies on JavaScript to Run</noscript>
+		<p>Copyright &copy: 2013<a href="#" title="1thwebdesigner">1thwebdesigner</a></p>
+	</footer>
+  
+	<script>               
+
+	$(document).ready(function () {
+		var dataSource = new kendo.data.DataSource({
+		   pageSize: 20,
+		   data: products,
+		   autoSync: true,
+		   schema: {
+			   model: {
+				 id: "ProductID",
+				 fields: {
+					ProductID: { editable: false, nullable: true },
+					ProductName: { validation: { required: true } },
+					Category: { defaultValue: { CategoryID: 1, CategoryName: "Beverages"} },
+					UnitPrice: { type: "number", validation: { required: true, min: 1} }
+				 }
+			   }
+		   }
+		});
+
+		$("#grid").kendoGrid({
+			dataSource: dataSource,
+			pageable: true,
+			height: 430,
+			toolbar: ["create"],
+			columns: [
+				{ field:"ProductName",title:"Product Name" },
+				{ field: "Category", title: "Category", width: "160px", editor: categoryDropDownEditor, template: "#=Category.CategoryName#" },
+				{ field: "UnitPrice", title:"Unit Price", format: "{0:c}", width: "120px" },
+				{ command: "destroy", title: " ", width: "90px" }],
+			editable: true
+		});
+	});
+
+	function categoryDropDownEditor(container, options) {
+		$('<input required data-text-field="CategoryName" data-value-field="CategoryID" data-bind="value:' + options.field + '"/>')
+			.appendTo(container)
+			.kendoDropDownList({
+				autoBind: false,
+				dataSource: {
+					type: "odata",
+					transport: {
+						read: "http://demos.kendoui.com/service/Northwind.svc/Categories"
+					}
+				}
+			});
+	}
+
+</script>
+	<script type="text/javascript">
+	(function(window){
+	var console = window.console,
+		document = window.document,
+		$ = window.jQuery,
+		options = {};
+    
+	function configHashChange(){
+		var loc = window.location.hash;
+		$(".tab").removeClass('active');
+		$(".view").slideUp();
+		
+		
+		loc=='' ? loc='#home_view' : '';
+		$(loc+"_tab").addClass('active');
+		$(loc).slideDown();
+	}
+	
+	$(document).ready(function(){
+		$(window).bind("hashchange", configHashChange);
+		configHashChange();
+	});
+
+}(this));
+	</script>
+</body>
+</html>
